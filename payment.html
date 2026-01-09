@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Details - AutoBid</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                        "border-light": "#e7edf3",
+                        "border-dark": "#2a3642",
+                        "button-dark": "#1f2937"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">directions_car</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">AutoBid</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Auctions</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Sell Your Car</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Support</a>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-col gap-4 mb-6">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary" href="#">Home</a>
+<span class="text-slate-300 dark:text-slate-600">/</span>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary" href="#">Car Details</a>
+<span class="text-slate-300 dark:text-slate-600">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Checkout</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-blue-600 font-bold group w-fit" href="index.html">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1">arrow_back</span>
+                            Back to Car Details
+                        </a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div>
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight mb-2">Complete Your Purchase</h1>
+<p class="text-slate-500 dark:text-slate-400">Review the payment details and confirm your purchase securely.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Payment Method</h3>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 flex items-center gap-5 shadow-sm">
+<div class="h-16 w-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-slate-800 dark:text-slate-200">smartphone</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg text-slate-900 dark:text-white">Wallet Pay</span>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                                            Active
+                                        </span>
+</div>
+<span class="text-sm text-slate-500 dark:text-slate-400 mt-1">Wallet Connected • •••• 4281</span>
+</div>
+<div class="text-primary cursor-pointer text-sm font-semibold">Balance AED 25,000.00</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 mt-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Terms of Purchase</h3>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark p-4 rounded-lg h-32 overflow-y-auto text-sm text-slate-600 dark:text-slate-300 leading-relaxed shadow-inner">
+<p class="mb-2"><strong>1. Binding Agreement:</strong> By clicking "Pay Now", you are entering into a legally binding contract to purchase the vehicle described in the Order Summary. Failure to complete the transaction may result in account suspension and legal action.</p>
+<p class="mb-2"><strong>2. Wallet Payment:</strong> You acknowledge that this transaction will be processed immediately via your selected digital wallet. Please ensure sufficient funds are available.</p>
+<p class="mb-2"><strong>3. Buyer's Premium:</strong> A non-refundable buyer's premium of 5% is added to the final bid price.</p>
+<p class="mb-2"><strong>4. Vehicle Condition:</strong> The vehicle is sold "AS-IS". AutoBid makes no warranties regarding the condition beyond the provided inspection report.</p>
+<p><strong>5. Dispute Resolution:</strong> Any disputes arising from this transaction will be settled through binding arbitration.</p>
+</div>
+<label class="flex items-start gap-3 mt-2 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</div>
+<span class="text-sm text-slate-700 dark:text-slate-300 pt-0.5 group-hover:text-primary transition-colors">
+                                        I have read and agree to the Terms of Purchase and Auction Rules.
+                                    </span>
+</label>
+</div>
+<div class="mt-4">
+    <a href="carwin.html">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg h-14 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-all transform active:scale-[0.99]">
+<span class="material-symbols-outlined">lock</span>
+                                    Pay AED 36,475.00
+                                </button></a>
+<div class="flex items-center justify-center gap-2 mt-4 text-slate-400 dark:text-slate-500 text-xs font-medium">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>Payments processed securely. 256-bit SSL Encrypted.</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="sticky top-28 bg-surface-light dark:bg-surface-dark rounded-2xl border border-border-light dark:border-border-dark shadow-sm overflow-hidden">
+<div class="p-6 border-b border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Order Summary</h3>
+<div class="flex gap-4 items-center">
+<div class="relative size-20 rounded-lg overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Side view of a white modern electric sedan" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVa9bbQbt3LVkq3M6UB_husVYZL998MLHlwPccGlpJVG9ltPc3ZcnoIPnjqYj87FOxZLydJ70_nAUYRMvOTIUUeswsQ_G5LXc27fdIPx9wamC2i3EUvxDjL26CvRpTLJfFnlU2Q6FKm0c51v5ty8ZczeZ8kJUiF2_zDIk3vDpsZiNCWrMuPFl3KbVoK12pcSVUUyxMUluIbsuyTnoRseQ_TfklZkdyOXbL9Asc7pI7nT-VRE0kumW4_JSbG12K4cpqB2cu9BUTi70");'></div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white leading-tight">2021 Tesla Model 3 Performance</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">VIN: 5YJ3E1EA1MF...8921</p>
+<div class="flex items-center gap-1 mt-1 text-xs text-primary font-medium bg-primary/10 w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                                                Verified
+                                            </div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-slate-50/50 dark:bg-slate-800/20">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Winning Bid</span>
+<span class="text-slate-900 dark:text-white font-medium">AED 34,500.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                                                Buyer's Premium (5%)
+                                                <span class="material-symbols-outlined text-slate-400 text-[16px] cursor-help" title="Fee for platform services">help</span>
+</span>
+<span class="text-slate-900 dark:text-white font-medium">$1,725.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Processing Fee</span>
+<span class="text-slate-900 dark:text-white font-medium">$250.00</span>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark my-2"></div>
+<div class="flex justify-between items-end">
+<span class="text-slate-700 dark:text-slate-200 font-bold">Total Amount Due</span>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary">AED 36,475.00</span>
+<p class="text-xs text-slate-400 dark:text-slate-500 font-normal mt-1">AED</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/5 border-t border-primary/10">
+<p class="text-xs text-center text-slate-500 dark:text-slate-400">
+                                        Transactions are processed immediately. No credit card or bank wire options available for this auction tier.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
