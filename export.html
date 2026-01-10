@@ -1,0 +1,297 @@
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Details - AutoBid</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                        "border-light": "#e7edf3",
+                        "border-dark": "#2a3642",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        #otp-state:target {
+            display: block;
+        }
+        #otp-state:target ~ #payment-form {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">directions_car</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">AutoBid</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Auctions</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Sell Your Car</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Support</a>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-col gap-4 mb-6">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary" href="#">Home</a>
+<span class="text-slate-300 dark:text-slate-600">/</span>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary" href="#">Car Details</a>
+<span class="text-slate-300 dark:text-slate-600">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Checkout</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-blue-600 font-bold group w-fit" href="#">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1">arrow_back</span>
+                        Back to Car Details
+                    </a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div>
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight mb-2">Checkout with Deposit</h1>
+<p class="text-slate-500 dark:text-slate-400">Secure your vehicle purchase by placing a minimum 10% deposit.</p>
+</div>
+<div class="hidden" id="otp-state">
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-2xl p-8 shadow-sm flex flex-col items-center">
+<div class="h-16 w-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl">domain_verification</span>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Security Verification</h2>
+<p class="text-slate-500 dark:text-slate-400 text-center mb-8 max-w-sm">
+                                    We've sent a 6-digit verification code to your registered mobile number ending in <span class="font-bold text-slate-900 dark:text-white">•••• 4281</span>.
+                                </p>
+<div class="flex gap-2 sm:gap-3 mb-8">
+<input autofocus="" class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+<div class="w-2 flex items-center justify-center text-slate-300 dark:text-slate-600 font-bold">-</div>
+<input class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-14 sm:w-12 sm:h-16 text-center text-2xl font-bold border-2 border-border-light dark:border-border-dark bg-slate-50 dark:bg-slate-800/50 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary dark:text-white transition-all outline-none" maxlength="1" type="text"/>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg h-14 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-all mb-6">
+<span class="material-symbols-outlined">verified_user</span>
+                                    Verify &amp; Complete Payment
+                                </button>
+<div class="flex flex-col items-center gap-2">
+<p class="text-sm text-slate-500 dark:text-slate-400">Didn't receive the code?</p>
+<div class="flex items-center gap-2">
+<button class="text-primary font-bold hover:underline text-sm opacity-50 cursor-not-allowed">Resend OTP</button>
+<span class="text-xs text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">00:59</span>
+</div>
+</div>
+<a class="mt-8 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                                    Back to payment selection
+                                </a>
+</div>
+</div>
+<div class="flex flex-col gap-8" id="payment-form">
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Payment Amount</h3>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold text-lg">$</span>
+<input class="w-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl py-4 pl-8 pr-4 text-xl font-bold text-slate-900 dark:text-white focus:ring-primary focus:border-primary transition-all shadow-sm" type="text" value="3,647.50"/>
+</div>
+<div class="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400 italic">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>A minimum 10% deposit ($3,647.50) is required to hold the vehicle. You can increase this amount to reduce your final balance.</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Payment Method</h3>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 flex items-center gap-5 shadow-sm">
+<div class="h-16 w-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-slate-800 dark:text-slate-200">account_balance_wallet</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg text-slate-900 dark:text-white">AutoBid Wallet</span>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                                                Connected
+                                            </span>
+</div>
+<span class="text-sm text-slate-500 dark:text-slate-400 mt-1">Balance: $45,000.00 • ID: 772-8921</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Export Options</h3>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl p-6 shadow-sm">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center mt-0.5">
+<input checked="" class="peer h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700 transition-all" id="export-toggle" type="checkbox"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                I am exporting this vehicle to another country
+                                            </span>
+<span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Additional documentation and export fees may apply based on destination.</span>
+</div>
+</label>
+<div class="mt-6 pt-6 border-t border-border-light dark:border-border-dark" id="country-selector-container">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Select Destination Country</label>
+<div class="relative country-dropdown">
+<button class="w-full flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 border border-primary rounded-xl py-3.5 px-4 text-slate-900 dark:text-white transition-all text-left ring-2 ring-primary/10" type="button">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">public</span>
+<span class="text-sm font-medium">Select Country</span>
+</div>
+<span class="material-symbols-outlined text-primary rotate-180 transition-transform">expand_more</span>
+</button>
+<div class="dropdown-menu absolute left-0 right-0 top-full mt-2 z-20 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] overflow-hidden">
+<div class="max-h-80 overflow-y-auto p-1.5 flex flex-col gap-0.5">
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left">
+<span class="text-2xl leading-none">🇦🇪</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/item:text-primary">United Arab Emirates</span>
+</button>
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left bg-slate-50 dark:bg-slate-800">
+<span class="text-2xl leading-none">🇸🇦</span>
+<span class="text-sm font-medium text-primary dark:text-primary">Saudi Arabia</span>
+</button>
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left">
+<span class="text-2xl leading-none">🇴🇲</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/item:text-primary">Oman</span>
+</button>
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left">
+<span class="text-2xl leading-none">🇰🇼</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/item:text-primary">Kuwait</span>
+</button>
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left">
+<span class="text-2xl leading-none">🇧🇭</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/item:text-primary">Bahrain</span>
+</button>
+<button class="w-full flex items-center gap-3.5 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group/item text-left">
+<span class="text-2xl leading-none">🇶🇦</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/item:text-primary">Qatar</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Terms of Purchase</h3>
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark p-4 rounded-lg h-32 overflow-y-auto text-sm text-slate-600 dark:text-slate-300 leading-relaxed shadow-inner">
+<p class="mb-2"><strong>1. Deposit Policy:</strong> The deposit amount selected will be deducted immediately from your wallet to secure the vehicle.</p>
+<p class="mb-2"><strong>2. Final Balance:</strong> The remaining balance (Total - Deposit) must be paid within 48 hours of auction completion.</p>
+<p class="mb-2"><strong>3. Forfeiture:</strong> Failure to pay the final balance within the allotted time will result in forfeiture of your deposit.</p>
+<p class="mb-2"><strong>4. Vehicle Condition:</strong> The vehicle is sold "AS-IS" based on the inspection report provided.</p>
+<p><strong>5. Binding Agreement:</strong> Your deposit constitutes a legal commitment to purchase the vehicle.</p>
+</div>
+<label class="flex items-start gap-3 mt-2 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</div>
+<span class="text-sm text-slate-700 dark:text-slate-300 pt-0.5 group-hover:text-primary transition-colors">
+                                        I have read and agree to the Terms of Purchase and Deposit Policy.
+                                    </span>
+</label>
+</div>
+<div class="mt-4">
+<a class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg h-14 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-all transform active:scale-[0.99] no-underline" href="#otp-state">
+<span class="material-symbols-outlined">lock</span>
+                                    Pay $3,647.50 Deposit
+                                </a>
+<div class="flex items-center justify-center gap-2 mt-4 text-slate-400 dark:text-slate-500 text-xs font-medium">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>Payments processed securely. Multi-factor authentication required.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="sticky top-28 bg-surface-light dark:bg-surface-dark rounded-2xl border border-border-light dark:border-border-dark shadow-sm overflow-hidden">
+<div class="p-6 border-b border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Order Summary</h3>
+<div class="flex gap-4 items-center">
+<div class="relative size-20 rounded-lg overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCt6bhMEbB2LW3czXoGMbUeCpkjegNTCYwBD9yhhlhfLHq7lU-AEGRu2Xuyg0070rQ40EFtaJcsQMNEpN7r8lbNqMHD_e6R31BQUJKhCQA_0AloAIq9XX8BCSiA-nfg3jKFve3rV2frniI5o-cZsYN29p50t-_RvMsFv3PcUb20qZn_xkFpe8l8eAUuj9yaGqHrRYu_EO6unkHBf4VrZvyf5Ue1WlwBZqkS3kV2Grt8uXRtaPGL7IFRe0NG3KRC-_X3sPw0HBDGAwQ");'></div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white leading-tight">2021 Tesla Model 3 Performance</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">VIN: 5YJ3E1EA1MF...8921</p>
+<div class="flex items-center gap-1 mt-1 text-xs text-primary font-medium bg-primary/10 w-fit px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                                            Verified
+                                        </div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-slate-50/50 dark:bg-slate-800/20">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Total Purchase Price</span>
+<span class="text-slate-900 dark:text-white font-medium">$36,475.00</span>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark my-2"></div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-700 dark:text-slate-300 font-semibold">Deposit Paid Today (10%)</span>
+<span class="text-slate-900 dark:text-white font-bold">$3,647.50</span>
+</div>
+<div class="flex justify-between items-center text-sm italic">
+<span class="text-slate-500 dark:text-slate-400">Remaining Balance Due</span>
+<span class="text-slate-500 dark:text-slate-400">$32,827.50</span>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark my-2"></div>
+<div class="flex justify-between items-end">
+<span class="text-slate-700 dark:text-slate-200 font-bold">Immediate Payment</span>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary">$3,647.50</span>
+<p class="text-xs text-slate-400 dark:text-slate-500 font-normal mt-1">USD</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/5 border-t border-primary/10">
+<p class="text-xs text-center text-slate-500 dark:text-slate-400 italic">
+                                    Partial payment only. The remaining balance must be settled within 48 hours to complete the transfer.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
