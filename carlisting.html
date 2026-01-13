@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buy Now Marketplace | AuctionPro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b607e",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                        "status-green": "#1e5e32",
+                        "status-amber": "#915d0a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            background-color: rgba(27, 96, 126, 0.1);
+            color: #1b607e;
+            border-right: 3px solid #1b607e;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0f171a] dark:text-gray-100 antialiased">
+<div class="flex min-h-screen">
+<aside class="w-72 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1a262b] hidden lg:block sticky top-0 h-screen">
+<div class="flex flex-col h-full p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="bg-primary rounded-xl p-2 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">directions_car</span>
+</div>
+<div>
+<h1 class="text-xl font-extrabold tracking-tight text-[#0f171a] dark:text-white leading-tight">AuctionPro</h1>
+<p class="text-xs font-semibold text-primary uppercase tracking-widest">Boutique Auctions</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-500">dashboard</span>
+<span class="font-semibold text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg active-nav" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-semibold text-sm">Buy Now</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-500">shopping_bag</span>
+<span class="font-semibold text-sm">My Purchases</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-500">account_balance_wallet</span>
+<span class="font-semibold text-sm">Wallet</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-500">history</span>
+<span class="font-semibold text-sm">Bid History</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-semibold text-sm text-[#0f171a] dark:text-gray-300">Settings</span>
+</a>
+<div class="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl mt-4">
+<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-A1GUGPqrA1ywnDzyy3Yq-Rvffo9Ig8JqX5nqc8WnYp24MhcuostKAQwixLHwhlnLGJUtWCIzgIb2PZCRpFJ52_9Gtzlfe5PsxoJw1rHyAUUOaMwzVeDv_pqcBo4ogAwfR7HUfDsfjimXV2mCOUyJKhAfOKhwPaPLiz5g9BYBSTxF2RZCHWqyK2DifPduqA_dPLQ2wqloMuhTAgMdAVgmoaCYVv9OCKB55cazvNz-MZpgEpI7J97s3DU-55-GPn944KXEICaKXKI")'></div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Alex Sterling</p>
+<p class="text-[10px] text-gray-500 truncate">Premium Member</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="max-w-6xl mx-auto px-6 py-8">
+<header class="mb-8 flex flex-wrap items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-medium text-gray-500 mb-2 uppercase tracking-tighter">
+<span>Marketplace</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary">Buy Now Selection</span>
+</nav>
+<h2 class="text-4xl font-black text-[#0f171a] dark:text-white tracking-tight">Luxury Inventory</h2>
+<p class="text-gray-500 dark:text-gray-400 mt-1 max-w-md">Immediate acquisition of curated high-end vehicles. No bidding required.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                        Shipping Quote
+                    </button>
+</div>
+</header>
+<div class="bg-white dark:bg-[#1a262b] p-2 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-8 sticky top-4 z-10">
+<div class="flex flex-col md:flex-row items-center gap-2">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-sm font-medium placeholder:text-gray-400" placeholder="Search luxury makes, models, or VIN..." type="text"/>
+</div>
+<div class="flex items-center gap-2 p-2 w-full md:w-auto overflow-x-auto no-scrollbar">
+<button class="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-gray-800/50 rounded-xl text-xs font-bold border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">tune</span>
+                            Filters
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-gray-800/50 rounded-xl text-xs font-bold border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">sort</span>
+                            Price: Low to High
+                        </button>
+<div class="w-[1px] h-6 bg-gray-200 dark:bg-gray-700 mx-1"></div>
+<button class="flex items-center justify-center p-2 rounded-xl bg-primary text-white shadow-md hover:bg-primary/90">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="group bg-white dark:bg-[#1a262b] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-center">
+<div class="relative w-full md:w-64 h-48 md:h-40 flex-shrink-0 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9vCsCNWqPAxIfoAWW9sduOw7x5SV_8LZ4FwSZtTDiOFNfGrEvUn8fxJAflpGyJ58hVfkX2n-FYL1G_15JmN_-OHk4nvH0sczyVhwv1Lsd7ojKDz_AODRNt-lxiw_VwRaMQN9vDrB-8TGflP7A3wYbBaQPLLvixcFsd3s60VG8VrOyvkSY0BlbEuvaurOgj7wOrVU4-E-Ud6uj93m9cW3G2NCEck5Fszs2j0jgNwdSRUq2g02PURbEjBflArGcWfZzw4EF2GH99ws")'></div>
+<div class="absolute top-3 left-3">
+<span class="bg-white/90 dark:bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-wider shadow-sm">New Arrival</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col md:flex-row items-center justify-between w-full gap-6">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">2023</span>
+<h3 class="text-xl font-bold text-[#0f171a] dark:text-white truncate">Mercedes-Benz G-Class</h3>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+<span>VIN: <span class="font-semibold text-gray-700 dark:text-gray-300">WDCYR65H2NA4031</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">speed</span>
+<span>Mileage: <span class="font-semibold text-gray-700 dark:text-gray-300">1,240 mi</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Location: <span class="font-semibold text-gray-700 dark:text-gray-300">Miami, FL</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-800 pt-4 md:pt-0 md:pl-8">
+<div class="text-right">
+<p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Buy Now Price</p>
+<p class="text-2xl font-black text-primary">$184,500</p>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:bg-[#144b63] transition-all whitespace-nowrap">
+                                Buy Now
+                            </button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-[#1a262b] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-center">
+<div class="relative w-full md:w-64 h-48 md:h-40 flex-shrink-0 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDc4WojfP6ox4awTcTojarmmLqWRzghXc97Pg8TZxeI1-h--v5RPdbvdHMsZGQe5WIPi3XjQnHnYdTvNl0K2tTms69-Vhpyb-kGxGT8D-LwzTS6-445SxmrvBDW91i6LiGHr-5LpQFoHw0T7srcoc8pSoaGCdBPPKoFa9WNaywVwiWauN78CNHf4Bw_7dABYKVQVNNeZnBvL3zsHqzpLjGC-Q5RZNT7dC3OqrvOrLU8WroKJysJcMahK-timYivPu-Ok779GLnlRU")'></div>
+<div class="absolute top-3 left-3">
+<span class="bg-status-amber text-white px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-wider shadow-sm">Hot Deal</span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col md:flex-row items-center justify-between w-full gap-6">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">2022</span>
+<h3 class="text-xl font-bold text-[#0f171a] dark:text-white truncate">Porsche 911 Carrera</h3>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+<span>VIN: <span class="font-semibold text-gray-700 dark:text-gray-300">WP0AA2A9XNS209</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">speed</span>
+<span>Mileage: <span class="font-semibold text-gray-700 dark:text-gray-300">4,800 mi</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Location: <span class="font-semibold text-gray-700 dark:text-gray-300">Los Angeles, CA</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-800 pt-4 md:pt-0 md:pl-8">
+<div class="text-right">
+<p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Buy Now Price</p>
+<p class="text-2xl font-black text-primary">$128,900</p>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:bg-[#144b63] transition-all whitespace-nowrap">
+                                Buy Now
+                            </button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-[#1a262b] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-center">
+<div class="relative w-full md:w-64 h-48 md:h-40 flex-shrink-0 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9HaZRfvXsa83SL5e2bRG6O6GjQtgFtruKrrQNwQHwcJmXjrhIcAsreM32_ArARNvlOL33eMAlvU044xvMVtsIbUa0acSEQIBi9oiSW6_VusipNf6bv7fTfOo3m2dBDD97NG-Eks4ln8PS3YubwPKjikaXm_WxobqGo1Wie8YrqwFqCXxwUs3XSez5Y14ztkYTRDqPgGHsqazKmy2LyQEso-_LfXPMNzm1EdAk8moTtRnubU1J_XxjgmNz1jRowdQi1FeZxhk3ppc")'></div>
+</div>
+<div class="flex-1 p-6 flex flex-col md:flex-row items-center justify-between w-full gap-6">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">2021</span>
+<h3 class="text-xl font-bold text-[#0f171a] dark:text-white truncate">Land Rover Range Rover</h3>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+<span>VIN: <span class="font-semibold text-gray-700 dark:text-gray-300">SALGS2RE3MA122</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">speed</span>
+<span>Mileage: <span class="font-semibold text-gray-700 dark:text-gray-300">18,200 mi</span></span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Location: <span class="font-semibold text-gray-700 dark:text-gray-300">New York, NY</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto border-t md:border-t-0 md:border-l border-gray-100 dark:border-gray-800 pt-4 md:pt-0 md:pl-8">
+<div class="text-right">
+<p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Buy Now Price</p>
+<p class="text-2xl font-black text-primary">$92,800</p>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:bg-[#144b63] transition-all whitespace-nowrap">
+                                Buy Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 p-8 rounded-2xl bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4 text-center md:text-left">
+<div class="p-3 bg-primary/20 text-primary rounded-full hidden sm:block">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="font-bold text-[#0f171a] dark:text-white">Professional Inspections Guaranteed</p>
+<p class="text-sm text-gray-500">Every car in our 'Buy Now' section includes a detailed 150-point inspection report.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary/5 transition-all">
+                        View Inspection Policy
+                    </button>
+<button class="px-6 py-3 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                        Contact Sales
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
