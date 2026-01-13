@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Premium Car Auction Marketplace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e11d48", // Rose 600
+              "background-light": "#f8fafc", // Slate 50
+              "background-dark": "#0f172a", // Slate 900
+            },
+            fontFamily: {
+              display: ["'Plus Jakarta Sans'", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24 }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">A</div>
+<span class="text-xl font-extrabold tracking-tight">AUTO<span class="text-primary">LUXE</span></span>
+</div>
+<div class="hidden md:flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Auctions</a>
+<a class="hover:text-primary transition-colors" href="#">Buy Now</a>
+<a class="hover:text-primary transition-colors" href="#">Sell Your Car</a>
+<a class="hover:text-primary transition-colors" href="#">How it Works</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-slate-300 dark:border-slate-600">
+<img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKwh4raxD299Yql6s7mrxVa-zzXe5W0LS1Eauwtcaoq6_HE7YC3EKTT1gG24AUShDVauLtBmP1ze-jhcFKBYEx8CpabUGX2dAat4AaLomRqhqUVE7P-lFjyDBmvXrzXbdUeVrOu3kuf-_CBBKvzv8gJJXkI6DO9KFpEnSLqpRozwHEQoE9L8NHEsTzxZDUQGbuM4gd5_sPrDSxPiBdqUEzfhgWcKaeWjp6be4TGf5jncFt7jLP96QTRMXWcdo5ApAxbEz1Aiw1C_M"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto px-6 py-8">
+<div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-8 border border-slate-200 dark:border-slate-700">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Search</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-900 border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Enter VIN, Lot Number or Model" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Make</label>
+<select class="w-full py-2.5 bg-slate-50 dark:bg-slate-900 border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-sm">
+<option>All Makes</option>
+<option>BMW</option>
+<option>Audi</option>
+<option>Toyota</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Year</label>
+<select class="w-full py-2.5 bg-slate-50 dark:bg-slate-900 border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-sm">
+<option>Any Year</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+</select>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white font-semibold py-2.5 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">Search</button>
+<button class="px-4 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-semibold py-2.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-600 transition-all">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="w-full lg:w-72 flex-shrink-0 space-y-6">
+<div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+<div class="p-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-700">
+<h3 class="font-bold">Filters</h3>
+<button class="text-xs text-primary font-semibold hover:underline">Reset All</button>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-semibold">Vehicle Type</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_less</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center p-2 border-2 border-primary bg-primary/5 rounded-xl transition-all">
+<span class="material-symbols-outlined text-primary mb-1">directions_car</span>
+<span class="text-[10px] font-bold text-primary">Sedan</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 border-2 border-transparent bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:border-slate-200 dark:hover:border-slate-600 transition-all">
+<span class="material-symbols-outlined text-slate-500 mb-1">suv</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">SUV</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 border-2 border-transparent bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:border-slate-200 dark:hover:border-slate-600 transition-all">
+<span class="material-symbols-outlined text-slate-500 mb-1">electric_car</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">EV</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 border-2 border-transparent bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:border-slate-200 dark:hover:border-slate-600 transition-all">
+<span class="material-symbols-outlined text-slate-500 mb-1">minor_crash</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Truck</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 border-2 border-transparent bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:border-slate-200 dark:hover:border-slate-600 transition-all">
+<span class="material-symbols-outlined text-slate-500 mb-1">two_wheeler</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Bikes</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 border-2 border-transparent bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:border-slate-200 dark:hover:border-slate-600 transition-all">
+<span class="material-symbols-outlined text-slate-500 mb-1">shuttle</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400">Vans</span>
+</button>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-700 p-4 space-y-4">
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Fuel Type</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">add</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Transmission</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">add</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Price Range</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">add</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Exterior Color</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">add</span>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary to-rose-700 p-6 rounded-2xl text-white shadow-xl shadow-primary/20 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="font-bold text-lg mb-2">Sell Your Vehicle</h4>
+<p class="text-rose-100 text-xs mb-4 leading-relaxed">Reach 50,000+ potential buyers every day across the globe.</p>
+<button class="bg-white text-primary font-bold text-sm px-6 py-2 rounded-xl hover:shadow-lg transition-all active:scale-95">Get Started</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/10 text-9xl">car_repair</span>
+</div>
+</aside>
+<div class="flex-1 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<div>
+<h1 class="text-2xl font-extrabold tracking-tight">Active Auctions</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Showing 1,240 vehicles found</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl">
+<button class="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm"><span class="material-symbols-outlined text-primary">grid_view</span></button>
+<button class="p-2 rounded-lg text-slate-400"><span class="material-symbols-outlined">list</span></button>
+</div>
+<div class="relative">
+<select class="pl-4 pr-10 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm appearance-none focus:ring-primary/20 focus:border-primary">
+<option>Sort: Latest Added</option>
+<option>Sort: Price Low to High</option>
+<option>Sort: Price High to Low</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+<div class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="Porsche 911" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI4vwzg_b3sPhCvBlmFwEXZkXWA4KC-thxlEo7_sOCkvUx-esYvoLwhogMLtltgzvy1GTCQ8PjI3SaB0Ahlkr23TANazVC9HcbqVBV39yzfLmHNSMUL3LFJdA6IXLPr0I2lR2RRMfRT3T8MKUXb-h1501Nvt4QgtG1zEUMoRVgU0uogwN8JN1JMU4TZYKQaoqBOzuyJh_zokN_MJOEczsMNEOqirsZ5fZZ2M72BCuW8s4ec7kmIua6Y_Ce9aeOQiNSIqQKCJZewng"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<button class="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                Live Auction
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">2023 Porsche 911 GT3</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1">VIN: ************2409</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Current Bid</p>
+<p class="text-xl font-extrabold text-primary">$182,500</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-700 mb-6">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">speed</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">1,240 mi</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">settings</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">PDK</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">local_gas_station</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Petrol</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">bolt</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">502 HP</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20">Bid Now</button>
+<button class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Details</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="Audi RS7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmyNc4DaxFrbbUezyG8GXnlmRUv8YsN4jcy6jbi_N3XJATDSoXAENog-BHpDYqeaZaXW_FxZ6gq94tM0eqScqUul-G_Vvsl9ffMDC5n6TRTOiZzusFvNRYIThu2Q3uTm2WmGIDeDqdnTvN00CknDefaxzPlvpwx5Spj4n_yHb4wBNdrJ61zp4P7zp_DkRpj-f2an_5VuwfiygK8F6il564hrGHQScI7IFFpkKrtDT8rnheMqFT_jQUwzPIRoYqK3tBijG1V00Prrk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<button class="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-emerald-500/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                Fixed Price
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">2024 Audi RS7 Sportback</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1">VIN: ************9901</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Buy Now</p>
+<p class="text-xl font-extrabold text-primary">$124,900</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-700 mb-6">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">speed</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">12 mi</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">settings</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">local_gas_station</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Hybrid</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">bolt</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">591 HP</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20">Buy Now</button>
+<button class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Details</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="Range Rover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALH-OSuwalE3mevmXSuRh8rlpdeIM86HUQ8dj2-AtI2mE4svDWeoyqpC1mlISA38BVy_azev7WVt5PpO0-AIegBIidKknJqJqSetoByZBw7q208xBcPCHyRYjjpumUnkdGik7WPgQL-ZSi_gLc3hyE-k1fG73wHoTymvdvKQb70D--pYFN4MkZ1Q2u-8pa8vWtivG_wr7lpI8pURsPf2g_Ig_Eb3dR8YfkOvHcU4ITF1mQ9X6sl2bkmgl-f3DqWKqLftSlEBayUDg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<button class="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                Live Auction
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">2022 Range Rover Autobiography</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1">VIN: ************5567</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Current Bid</p>
+<p class="text-xl font-extrabold text-primary">$110,400</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-700 mb-6">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">speed</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">8,450 mi</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">settings</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">local_gas_station</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Diesel</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">bolt</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">350 HP</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20">Bid Now</button>
+<button class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Details</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="BMW M5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsBqOkQs6mIBq97IGQZDyYOzYrHKgjAmCvWRJIDZ__A8I47CCpXGq3JZ-HkDo2QeMb_E_gIPCXiRXs3lAYNP1gjEbcZCZXDIJDyoW_ktd2tvQHc4nX1kKAz0PKQmtZgTJ7PpIgSiIu8NK_ky-KDEkZIYN7ocTW31ZZa0p6nBOQYvI6m-JdOWgKz2p7HD9sv1CAW7dcp3iRpERxg8n-5tcl046wog-DoSC6VWYuRdsNRwZzImsgKZq5A_nmUOaQcKbxX5p-Io-9uCs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<button class="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                Live Auction
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">2021 BMW M5 CS</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1">VIN: ************1124</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Current Bid</p>
+<p class="text-xl font-extrabold text-primary">$138,000</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-700 mb-6">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">speed</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">3,200 mi</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">settings</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Auto</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">local_gas_station</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">Petrol</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-400 text-xl">bolt</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase">627 HP</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20">Bid Now</button>
+<button class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Details</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-2 pt-8">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-bold">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-bold">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-bold">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-16 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">A</div>
+<span class="text-xl font-extrabold tracking-tight">AUTO<span class="text-primary">LUXE</span></span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">The world's most trusted platform for premium car auctions. We bring transparency and excitement to every deal.</p>
+</div>
+<div>
+<h5 class="font-bold mb-4">Marketplace</h5>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">All Vehicles</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ending Soon</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Recently Sold</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">New Listings</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-4">Company</h5>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our History</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-4">Subscribe</h5>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Get the latest auction news delivered to your inbox.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-xl hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 AutoLuxe Auction Marketplace. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Check for system theme preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+</body></html>

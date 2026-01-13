@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxury Auto Marketplace | Premier Auctions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Material+Icons+Outlined&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#E11D48", // Vibrant Red for CTAs
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+<header class="sticky top-0 z-50 glass-panel border-b border-slate-200 dark:border-slate-800 px-6 py-4 mb-8">
+<div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-8 w-full lg:w-auto">
+<h1 class="font-display text-2xl font-800 tracking-tight text-slate-900 dark:text-white">
+                    LUXE<span class="text-primary">AUCTION</span>
+</h1>
+<div class="relative flex-grow max-w-md hidden md:block">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 pl-10 pr-4 py-2 rounded-full text-sm focus:ring-primary focus:border-primary transition-all" placeholder="Search by VIN, make or model..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-end">
+<div class="flex gap-2">
+<select class="bg-transparent border-none text-sm font-medium focus:ring-0 cursor-pointer text-slate-600 dark:text-slate-400">
+<option>Current Auction: Dec 2026 Cashback</option>
+</select>
+</div>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 pl-4">
+<button class="p-2 rounded-lg hover:bg-white/50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-400">
+<span class="material-icons-outlined">notifications</span>
+</button>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity">
+                        Sell Your Vehicle
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto px-6 pb-20">
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="glass-panel p-6 rounded-3xl sticky top-28">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-display text-lg font-bold">Refine Results</h2>
+<button class="text-xs font-semibold text-primary uppercase tracking-wider hover:underline">Reset</button>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex items-center justify-between text-sm font-bold mb-4">
+<span>Vehicle Type</span>
+<span class="material-icons-outlined text-sm">remove</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white dark:bg-slate-800 border-2 border-primary text-primary transition-all">
+<span class="material-icons-outlined text-2xl mb-1">directions_car</span>
+<span class="text-[10px] font-bold uppercase">Sedan</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white/30 dark:bg-slate-800/30 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+<span class="material-icons-outlined text-2xl mb-1">airport_shuttle</span>
+<span class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">SUV</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white/30 dark:bg-slate-800/30 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+<span class="material-icons-outlined text-2xl mb-1">local_shipping</span>
+<span class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Truck</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white/30 dark:bg-slate-800/30 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+<span class="material-icons-outlined text-2xl mb-1">motorcycle</span>
+<span class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Bike</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white/30 dark:bg-slate-800/30 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+<span class="material-icons-outlined text-2xl mb-1">electric_car</span>
+<span class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">EV</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-2xl bg-white/30 dark:bg-slate-800/30 border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+<span class="material-icons-outlined text-2xl mb-1">commute</span>
+<span class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Classic</span>
+</button>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-slate-200/50 dark:border-slate-700/50">
+<div class="flex items-center justify-between text-sm font-semibold cursor-pointer py-1 hover:text-primary transition-colors">
+<span>Fuel Type</span>
+<span class="material-icons-outlined text-sm">add</span>
+</div>
+<div class="flex items-center justify-between text-sm font-semibold cursor-pointer py-1 hover:text-primary transition-colors">
+<span>Transmission</span>
+<span class="material-icons-outlined text-sm">add</span>
+</div>
+<div class="flex items-center justify-between text-sm font-semibold cursor-pointer py-1 hover:text-primary transition-colors">
+<span>Price Range</span>
+<span class="material-icons-outlined text-sm">add</span>
+</div>
+<div class="flex items-center justify-between text-sm font-semibold cursor-pointer py-1 hover:text-primary transition-colors">
+<span>Mileage</span>
+<span class="material-icons-outlined text-sm">add</span>
+</div>
+<div class="flex items-center justify-between text-sm font-semibold cursor-pointer py-1 hover:text-primary transition-colors">
+<span>Color</span>
+<span class="material-icons-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-grow">
+<div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+<div class="flex items-center gap-2">
+<h2 class="font-display text-2xl font-800">Available Vehicles</h2>
+<span class="bg-slate-200 dark:bg-slate-800 px-3 py-1 rounded-full text-xs font-bold text-slate-600 dark:text-slate-400">2,481</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center glass-panel rounded-full p-1">
+<button class="px-4 py-2 rounded-full bg-white dark:bg-slate-700 shadow-sm flex items-center gap-2 text-sm font-bold">
+<span class="material-icons-outlined text-sm">grid_view</span> Grid
+                            </button>
+<button class="px-4 py-2 rounded-full hover:bg-white/50 dark:hover:bg-slate-800/50 flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 transition-all">
+<span class="material-icons-outlined text-sm">view_list</span> List
+                            </button>
+</div>
+<div class="relative">
+<select class="appearance-none bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 pl-4 pr-10 py-2.5 rounded-full text-sm font-medium focus:ring-primary">
+<option>Sort by: Newest Listed</option>
+<option>Sort by: Price (Low to High)</option>
+<option>Sort by: Price (High to Low)</option>
+<option>Sort by: Mileage</option>
+</select>
+<span class="material-icons-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<div class="group relative bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden card-shadow border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="2016 Honda Aspire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwrbO9z7d87aUtVHe3_j3D9u_gN5hIdR-pm8WzXBs4TnYoDa_KSNzunIbj5FaYq5FZwY9iLwx7ZIcHITdFZerC__qZEwtJkkISOfX19O0hBBGXCFxPKqvtgPzZe2Nlz2GGx_3r_3zGOeTt97cPUvejnp3_qjeuowNqehQqPkp-XMFPAAbsWuZMtO2wsaSaroZ-KIeyTDowQoaYRPXq72K0-qGEuueAZjr_JfLNw1aDPNSLn0w8mwLs8wm7wAcfKKoJEIFzwsM4NKI"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-900 dark:text-white hover:bg-primary hover:text-white transition-all">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Featured</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display font-bold text-xl group-hover:text-primary transition-colors">2016 HONDA ASPIRE</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-tighter">VIN: **300794 • SEQ: 1</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Starting Bid</p>
+<p class="text-2xl font-800 text-primary">฿ 1,500</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-800 mb-6">
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">speed</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">1.3 Ltr</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">route</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">500 Mi</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">local_gas_station</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">Diesel</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">settings_suggest</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">4WD</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3.5 rounded-2xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+                                    Place Pre-Bid
+                                </button>
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-3.5 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                    Full Details
+                                </button>
+</div>
+</div>
+</div>
+<div class="group relative bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden card-shadow border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="2020 Toyota Supra" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFIcXxLgi6AYw6uuAvQFeuhFKToEoHNbLSfa1g1wHP1_RN3TMlZ-EYRFV68N3RaStz1T6U18HKYk4fk26A1B5k-uGjrA-IxsMXOWhV1tCTDlC_cKIOaFK6Jk1gV4qXR-QAMWNY9ggfMVEnB__ELdBAF_5vz2-OFgZbtPX_EcLtEExXcE3BMZ7rEeC6KEK0EMpm_D8eIrqsuz5FW6Sl6qQ42URJNfqcRTxFYTWKi98A4ENNoy0INITlC5oNiF5m1bYd1DIPqvGJMA4"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-primary bg-primary/10 transition-all">
+<span class="material-icons-outlined">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display font-bold text-xl group-hover:text-primary transition-colors">2020 TOYOTA SUPRA</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-tighter">VIN: **013314 • SEQ: 2</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Buy It Now</p>
+<p class="text-2xl font-800 text-primary">฿ 30,000</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-800 mb-6">
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">speed</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">3.0 Ltr</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">route</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">6,581 Mi</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">local_gas_station</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">Petrol</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">settings_suggest</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">RWD</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3.5 rounded-2xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+                                    Place Pre-Bid
+                                </button>
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-3.5 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                    Full Details
+                                </button>
+</div>
+</div>
+</div>
+<div class="group relative bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden card-shadow border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all duration-300">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="2022 Porsche Taycan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjCJv0--nRgxLrbys1YHFHoltHyLB49b_nSvacETg5L3q5XG9iD0rM0veQnPq1aQNfzQ0TTYyYuET5kW5HMr8mQbiz1I6DdGNtUFWMAObTTN7GIRAWn2VzEQKie4b4TSLJboSyVzp8l4M2VPdYaGtcVVBa7KmNw1gCtXvewQJaden-TKRmS4cSe-yzhbbHOuR58kPKOaVS3sk9gjgm9po69_hc4cZDu9-QcIr_4-abwxhGZgDBJvdqve2FgryY7TSBBRYxyITAFmI"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-900 dark:text-white hover:bg-primary hover:text-white transition-all">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display font-bold text-xl group-hover:text-primary transition-colors">2022 PORSCHE TAYCAN</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-tighter">VIN: **992011 • SEQ: 3</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Current High</p>
+<p class="text-2xl font-800 text-primary">฿ 82,400</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 py-4 border-y border-slate-100 dark:border-slate-800 mb-6">
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">bolt</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">EV 470kW</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">route</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">1,204 Mi</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">electric_car</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">Electric</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-icons-outlined text-lg text-slate-400 mb-1">settings_suggest</span>
+<span class="text-[10px] font-bold uppercase text-slate-600 dark:text-slate-400">AWD</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-3.5 rounded-2xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+                                    Place Pre-Bid
+                                </button>
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-3.5 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                                    Full Details
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 flex items-center justify-center gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+<span class="material-icons-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">2</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">24</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+<span class="material-icons-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-white dark:bg-slate-800 shadow-2xl rounded-full flex items-center justify-center text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 z-50" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined dark:hidden">dark_mode</span>
+<span class="material-icons-outlined hidden dark:block">light_mode</span>
+</button>
+
+</body></html>
